@@ -14,25 +14,22 @@ def getvalue():
     quote_page = "https://www.timeshighereducation.com/world-university-rankings/"+uname.replace(" ","-")
     page = requests.get(quote_page)
     soup = BeautifulSoup(page.text, 'html.parser')
-    name= soup.find('div',class_="institution-info__contact-detail institution-info__contact-detail--address")
+    name= soup.find('a',class_="link--country-flag")
     rank=soup.find('div',class_="rank__number")
     n=re.sub('<[^>]+>', '',str(name)).strip()
     last_n=n.rfind(',')
     n=str(n[int(last_n+1):])
     r=re.sub('<[^>]+>', '',str(rank))
     if cname in n:
-        #print(n)
         rank=r
         if rank is "o":
             rank="NA"
         rank=rank.replace("th","")
         rank=rank.replace("rd","") 
         rank=rank.replace("st","")
+        rank=rank.replace("nd","")
         return render_template("result.html",rank=rank,uname=uname)
     else:
-        rank=rank.replace("th","")
-        rank=rank.replace("rd","") 
-        rank=rank.replace("st","")
         return render_template("cverify.html",cname=n,uname=uname)
 @app.route('/<value>'   )
 def getvaluere(value):
@@ -40,7 +37,7 @@ def getvaluere(value):
     quote_page = "https://www.timeshighereducation.com/world-university-rankings/"+uname.replace(" ","-")
     page = requests.get(quote_page)
     soup = BeautifulSoup(page.text, 'html.parser')
-    name= soup.find('div',class_="institution-info__contact-detail institution-info__contact-detail--address")
+    name= soup.find('a',class_="link--country-flag")
     rank=soup.find('div',class_="rank__number")
     n=re.sub('<[^>]+>', '',str(name)).strip()
     last_n=n.rfind(',')
@@ -51,6 +48,7 @@ def getvaluere(value):
     rank=rank.replace("th","")
     rank=rank.replace("rd","") 
     rank=rank.replace("st","")
+    rank=rank.replace("nd","")
     return render_template("result.html",rank=rank,uname=uname)
         
 if __name__=='__main__':
