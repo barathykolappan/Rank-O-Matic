@@ -1,0 +1,32 @@
+<html>
+<head>
+<title>Rank-O-Matic</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<link rel="stylesheet" type="text/css" href={{ url_for('static', filename='static/style.css')}}/>
+</head>
+<body>
+<br><br><br><br>
+<center><img src="icon.png" height=15%></center>
+<form>
+<div class="Search">
+  <div class="search_title">
+    <center>Search for an University</center>
+  </div>
+  <div class="search_fields">
+    <div class="search_fields__country">
+        <i class="material-icons" style="position:absolute; top:12px; left:10px;">location_on</i>
+      <input placeholder="Country Name" type="text" name='cname'>
+    </div>
+    <div class="search_fields__univ">
+        <i class="material-icons" style="position:absolute; top:60px; left:10px;">school</i>
+      <input placeholder="University Name" type="text" name='uname'></input>
+    </div>
+	<div class="search_fields__course">
+        <i class="material-icons" style="position:absolute; top:108px; left:10px;">view_week</i>
+      <input placeholder="Course Name (Optional)" type="text" name='coname'></input>
+    </div>
+    <div class="search_fields__submit">
+      <center><input type="submit" value="Lookup Rank"></center>
+</form>
+</body>
+</html>
