@@ -90,7 +90,7 @@ body .search_fields__submit input:focus {
   outline: none;
 }
 body .search_fields__submit input:hover {
-  color: white;
+  color: #35394a;
   background: #ffffff;
   cursor: pointer;
   transition-property: background,color;
