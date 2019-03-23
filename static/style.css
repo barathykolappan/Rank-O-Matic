@@ -1,13 +1,4 @@
-body {
-  -webkit-perspective: 800px;
-          perspective: 800px;
-  height: 100vh;
-  margin: 0;
-  overflow: hidden;
-  font-family: 'Gudea', sans-serif;
-  background: #00537E;
-  background: linear-gradient(135deg, #00537E 0%, #3AA17E 100%);
-}
+
 body .search {
   opacity: 1;
   top: 20px;
@@ -84,8 +75,8 @@ body .search_fields__submit input {
   position:absolute;
   left:55px;
   top:-15px;
-  border: 2px solid #3AA17E;
-  color: #3AA17E;
+  border: 2px solid #ffffff;
+  color: #ffffff;
   align:center;
   font-size: 14px;
   transition-property: background,color;
