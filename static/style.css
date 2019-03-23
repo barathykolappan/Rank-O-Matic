@@ -17,7 +17,7 @@ body .search {
 }
 
 body .search_title {
-  color: #afb1be;
+  color: #ffffff;
   height: 20px;
   text-align: center;
   font-size: 16px;
@@ -88,7 +88,7 @@ body .search_fields__submit input:focus {
 }
 body .search_fields__submit input:hover {
   color: white;
-  background: #3AA17E;
+  background: #ffffff;
   cursor: pointer;
   transition-property: background,color;
   transition-duration: .2s;
