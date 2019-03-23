@@ -1,4 +1,7 @@
-
+@font-face {
+font-family: "Product Sans";
+src: url("https://raw.githack.com/barathykolappan/Rank-O-Matic/master/static/PSR.ttf") format("truetype");
+}
 body .search {
   opacity: 1;
   top: 20px;
