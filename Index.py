@@ -21,13 +21,33 @@ def getvalue():
     last_n=n.rfind(',')
     n=str(n[int(last_n+1):])
     r=re.sub('<[^>]+>', '',str(rank))
+    about=soup.findAll('div',class_="pane-content")
+    about=str(about[2:3])
+    ab=str(re.findall('>.*[</div>]',about))
+    ab=ab.replace(",","")
+    ab=ab.replace("<p>","")
+    ab=ab.replace("</p>","")
+    ab=ab.replace("' '","")
+    ab=ab.replace(">","")
+    ab=ab[2:len(ab)-7]
+    q=0
+    i=0
+    for i in range(0,len(ab)):
+        if(ab[i]=='.'):
+            q=q+1
+        if(q==5):
+            break
+        else:continue
+        about=ab[:i+1]
     if cname in n:
         rank=r
-        if((rank is "o")or(rank is "None")):
+        if(rank is "None"):
             st1=uname+" is an awesome place to study."
             st2=uname+" is a bad place to study."
             rank1=RankU(st1)
+            print(rank1)
             rank2=RankU(st2)
+            print(rank2)
             if(rank2>rank1):
                 rank="Recommended"
             else:
@@ -36,9 +56,9 @@ def getvalue():
         rank=rank.replace("rd","") 
         rank=rank.replace("st","")
         #rank=rank.replace("nd","")
-        return render_template("result.html",rank=rank,uname=uname)
+        return render_template("result.html",rank=rank,uname=uname,about=about)
     else:
-        return render_template("cverify.html",cname=n,uname=uname)
+        return render_template("cverify.html",cname=n,uname=uname,about=about)
 @app.route('/<value>')
 def getvaluere(value):
     uname=value
