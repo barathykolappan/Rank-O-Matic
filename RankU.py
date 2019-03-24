@@ -7,7 +7,7 @@ import requests
 import re
 import heapq
 fo=""
-def RankU(input_msg):
+def RankUCal(input_msg):
     target_text=str(input_msg)
     fo=""
     for n in range(2):
