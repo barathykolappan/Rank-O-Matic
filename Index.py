@@ -2,6 +2,7 @@ from flask import Flask, render_template, request
 import requests
 from bs4 import BeautifulSoup
 import re
+import RankU
 app=Flask(__name__)
 @app.route('/')
 def index():
@@ -22,16 +23,23 @@ def getvalue():
     r=re.sub('<[^>]+>', '',str(rank))
     if cname in n:
         rank=r
-        if rank is "o":
-            rank="NA"
+        if((rank is "o")or(rank is "None")):
+            st1=uname+" is an awesome place to study."
+            st2=uname+" is a bad place to study."
+            rank1=RankU(st1)
+            rank2=RankU(st2)
+            if(rank2>rank1):
+                rank="Recommended"
+            else:
+                rank="Not Recommended"        
         rank=rank.replace("th","")
         rank=rank.replace("rd","") 
         rank=rank.replace("st","")
-        rank=rank.replace("nd","")
+        #rank=rank.replace("nd","")
         return render_template("result.html",rank=rank,uname=uname)
     else:
         return render_template("cverify.html",cname=n,uname=uname)
-@app.route('/<value>'   )
+@app.route('/<value>')
 def getvaluere(value):
     uname=value
     quote_page = "https://www.timeshighereducation.com/world-university-rankings/"+uname.replace(" ","-")

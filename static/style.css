@@ -92,6 +92,10 @@ body .search_fields__submit input:hover {
   transition-property: background,color;
   transition-duration: .2s;
 }
+body #Sal{
+position:absolute;
+left:10px;
+}
 
 
 
