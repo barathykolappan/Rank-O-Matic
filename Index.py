@@ -53,6 +53,7 @@ def getvalue():
         sts.append(v[l])
     if "world-university-rankings" in ab:
         ab="___________Information not available.___________"
+    cr="1"
     if cname in n:
         rank=r
         if(len(sts)<4):
@@ -61,7 +62,8 @@ def getvalue():
             sts.append("NA")
             sts.append("NA")
             sts.append("NA")
-        return render_template("result.html",rank=rank,uname=uname,about=ab,sal=str(sts[0]),cf=str(sts[2]),per=str(sts[3]))
+            cr="NA"
+        return render_template("result.html",cr=cr,rank=rank,uname=uname,about=ab,sal=str(sts[0]),cf=str(sts[2]),per=str(sts[3]))
     else:
         return render_template("cverify.html",cname=n,uname=uname,about=ab)
 @app.route('/<value>')
@@ -108,6 +110,7 @@ def getvaluere(value):
         sts.append(w[l])
     for l in range(0,len(v)):
         sts.append(v[l])
+    cr="1"
     if "world-university-rankings" in ab:
         ab="___________Information not available.___________"
     if(len(sts)<4):
@@ -116,8 +119,8 @@ def getvaluere(value):
         sts.append("NA")
         sts.append("NA")
         sts.append("NA")
-    return render_template("result.html",rank=r,uname=uname,about=ab,sal=str(sts[0]),cf=str(sts[2]),per=str(sts[3]))
+        cr="NA"
+    return render_template("result.html",cr=cr,rank=r,uname=uname,about=ab,sal=str(sts[0]),cf=str(sts[2]),per=str(sts[3]))
     
 if __name__=='__main__':
     app.run()
-    
